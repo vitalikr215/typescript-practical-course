@@ -1,12 +1,14 @@
 /// <reference types="@types/google.maps" />
 
-//instruction for other classes what properties should they have to be able to
-//add markers
+/**instruction for other classes what properties should they have to be able to
+add markers*/
 export interface Mappable{
   location : {
     lat: number,
     lon: number
   }
+
+  markerContent(): string
 }
 
 export class CustomMap{
@@ -30,6 +32,14 @@ export class CustomMap{
         lat: mappable.location.lat,
         lng: mappable.location.lon
       }
+    });
+
+    marker.addListener('click', ()=>{
+      const infoWindow = new google.maps.InfoWindow({
+        content: mappable.markerContent()
+      });
+
+      infoWindow.open(this.googleMap, marker);
     });
   }
 }
