@@ -8,7 +8,7 @@ export class LinkedList implements Sortable{
     //if the list empty and head pointing to null
     //set new item as a head
     if (!this.head){
-      console.log(`Add first item ${value}`);
+      //console.log(`Add first item ${value}`);
       
       this.head = node;
       return;
@@ -21,7 +21,7 @@ export class LinkedList implements Sortable{
       tail = tail.next;
     }
     //adding new node to the tail
-    console.log(`add next item ${value}`);
+    //console.log(`add next item ${value}`);
     
     tail.next = node;
   }
@@ -61,22 +61,17 @@ export class LinkedList implements Sortable{
     if (!this.head){
       return false;
     }
-    console.log(`compare ${this.at(leftIndex).data} with ${this.at(rightIndex).data}`);
-    
     return this.at(leftIndex).data > this.at(rightIndex).data;
   }
 
   swap(leftIndex: number, rightIndex: number): void {
     //we are not going to swap nodes itself, we'll just swap their values
-    console.log();
-    
     const leftNode = this.at(leftIndex);
     const rightNode = this.at(rightIndex);
     
-    console.log(`swap ${leftNode.data} with ${leftNode.data}`);
-    const tmp = leftNode;
+    const tmp = leftNode.data;
     leftNode.data = rightNode.data;
-    rightNode.data = tmp.data;
+    rightNode.data = tmp;
   }
 
   print():void{

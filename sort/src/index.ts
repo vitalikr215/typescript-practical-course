@@ -27,6 +27,8 @@ const list = new LinkedList();
 list.add(2);
 list.add(1);
 list.add(-5);
+list.add(70);
+list.add(0);
 list.print();
 
 const sorter3 = new Sorter(list);
