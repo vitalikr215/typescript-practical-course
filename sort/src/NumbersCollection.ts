@@ -1,8 +1,9 @@
 import { Sortable } from "./Sortable";
+import { Sorter } from "./Sorter";
 
-export class NumbersCollection implements Sortable{
+export class NumbersCollection extends Sorter{
   constructor (public data: number[]){
-
+    super();
   }
 
   //if you write get before you may not use () to get lenght (call it like property not like a method)

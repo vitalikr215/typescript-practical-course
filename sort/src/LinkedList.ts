@@ -1,6 +1,6 @@
-import { Sortable } from "./Sortable";
+import { Sorter } from "./Sorter";
 
-export class LinkedList implements Sortable{
+export class LinkedList extends Sorter{
   head: Node | null = null;
 
   add(value: number): void{
