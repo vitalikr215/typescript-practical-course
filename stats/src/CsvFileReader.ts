@@ -1,14 +1,15 @@
 import fs from 'fs';
 import { MatchResult } from './MatchResult';
 import {dateStringToData} from './Utils'
+import { DataReader } from './DataReader';
 
 type MatchData = [Date, string, string, number, number, MatchResult, string];
 
-export class CsvFileReader{
+export class CsvFileReader implements DataReader{
   constructor(public fileName:string){
     this.data = [];
   }
-  data : MatchData[];
+  data : string[][];
   
   read():void{
     this.data = fs
@@ -16,17 +17,6 @@ export class CsvFileReader{
       .split('\n')
       .map((row:string):string[]=>{
         return row.split(',');
-      })
-      .map((row: string[]): MatchData =>{
-        return [
-          dateStringToData(row[0]),
-          row[1],
-          row[2],
-          parseInt(row[3]),
-          parseInt(row[4]),
-          row[5] as MatchResult,
-          row[6]
-        ]
       })
   }
 }
