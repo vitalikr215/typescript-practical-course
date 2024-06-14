@@ -2,8 +2,11 @@ export class Attributes<T extends object>{
   constructor(private data: T){
     
   }
-  get(propName: string): string | number{
-    return this.data[propName];
+
+  //such definition will fix losing context of get method 
+  //if we call it outside attributes class
+  get = <K extends keyof T>(key: K): T[K] =>{
+    return this.data[key];
   }
 
   set(update: T):void{

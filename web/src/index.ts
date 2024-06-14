@@ -1,4 +1,5 @@
-import { User } from "./models/User";
+import { User, UserProps } from "./models/User";
+import { Attributes } from "./models/Attributes";
 
-const user = new User();//new User({name: 'Evlampiy', age: 12});
-//to create a user without initial values new User({})
+const user = new User({id:1, name:"Vitalik", age:12});
+user.get("age")
