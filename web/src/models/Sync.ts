@@ -9,7 +9,7 @@ export class Sync<T extends HasId>{
     //
   }
 
-  fetch(id: number, data: T): AxiosPromise<T>{
+  fetch(id: number): AxiosPromise<T>{
     return axios.get(`${this.rootUrl}/${id}`);
   }
 
