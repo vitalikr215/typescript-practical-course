@@ -1,15 +1,10 @@
-import { User, UserProps } from "./models/User";
-import { Attributes } from "./models/Attributes";
+import { Collection } from "./models/Collection";
+import {User, UserProps} from './models/User'
 
-const user = User.buildUser({id:1, name:"Vitalik", age: 53});
-user.on('change',()=>{
-  console.log("User was changed");
-  console.log(user);
+const collection = User.buildUserCollection();
+
+collection.on('change', ()=>{
+  console.log(collection.models);
 });
 
-//user.set({id:1, name:"Vitalik", age: 53});
-user.fetch();
-user.set({age:54});
-user.save();
-user.fetch();
-//console.log(user.get('name')+ ' '+ user.get('age'));
+collection.fetch();
