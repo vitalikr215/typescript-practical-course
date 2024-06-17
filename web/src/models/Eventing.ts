@@ -1,4 +1,5 @@
-export type Callback = ()=>void;
+import { Callback } from "./Model";
+
 
 export class Eventing{
   events:{[key: string]:Callback[]} ={};
