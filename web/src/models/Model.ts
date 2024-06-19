@@ -18,7 +18,7 @@ export interface Sync<T>{
   save(data: T):AxiosPromise<T>
 }
 
-interface HasId{
+export interface HasId{
   id?: number;
 }
 
