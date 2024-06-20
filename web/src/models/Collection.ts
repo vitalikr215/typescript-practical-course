@@ -21,10 +21,11 @@ export class Collection<T,T1>{
   fetch():void{
     axios.get(this.rootUrl)
     .then((response: AxiosResponse)=>{
+    
       response.data.forEach((value:T1 )=> {
         this.models.push(this.deserialize(value));
       });
+      this.trigger('change');
     });
-    this.trigger('change');
   }
 }

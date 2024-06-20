@@ -15,12 +15,12 @@ export class ApiSync<T extends HasId>{
 
   save(data: T):AxiosPromise<T>{ 
     const { id } = data;
-    
+
     if (id){
-      return axios.put(`${this.rootUrl}/${id}`, {}); 
+      return axios.put(`${this.rootUrl}/${id}`, data); 
     }
     else{
-      return axios.post(`${this.rootUrl}`, {});
+      return axios.post(`${this.rootUrl}`, data);
     }
   }
 }
