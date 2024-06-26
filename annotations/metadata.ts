@@ -14,7 +14,7 @@ console.log(Reflect.getMetadata('note',plane));
 Reflect.defineMetadata('metadata',100, plane, 'color');
 
 
-@printMetadata2
+@printMetadata('secret')
 class Plane {
   color: string = 'red';
   
@@ -30,24 +30,14 @@ function markFunction(target: Plane, key: string) {
 
 //print out specific metadata key
 function printMetadata(field: string){
-  return function(target: typeof Plane){
-    for (let key in target.prototype) {
-      console.log(key);
-      console.log(`${key}:${Reflect.getMetadata(field,target.prototype, key)}`);
-    }
+  return function(target: any){
+    Object.getOwnPropertyNames(target.prototype).forEach((key) => {
+      console.log(`${key}:${Reflect.getMetadata(field, target.prototype, key)}`);
+    });
   }
 }
 
-function printMetadata2(target: typeof Plane){
-  console.log(target.prototype);
-  
-    for (let key in target.prototype) {
-      console.log(key);
-      console.log(`${key}:${Reflect.getMetadata('secret',target.prototype, key)}`);
-    }
-  
-}
 
 
 //to get metadata of class memeber use class prototype
-console.log(Reflect.getMetadata('secret', Plane.prototype, 'fly'));
+//console.log(Reflect.getMetadata('secret', Plane.prototype, 'fly'));
