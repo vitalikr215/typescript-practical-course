@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Parent from './props/Parent';
+import GuestList from './state/GuestList';
 
 
 
@@ -11,12 +12,13 @@ const root = ReactDOM.createRoot(
 const App =()=>{
   return (
     <div>
-      <h1>Hi there !</h1>
+      <GuestList/>
     </div>
   );
 };
 
 root.render(
-    <Parent />
+    //<Parent />
+    <App/>
 );
 
