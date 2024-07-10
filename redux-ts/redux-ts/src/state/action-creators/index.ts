@@ -14,7 +14,7 @@ export const searchRepositories = (searhTerm: string)=>{
       const {data} = await axios.get(url+searhTerm);
 
       const names = data.objects.map((result:any) => {
-        return `${result.package.name}:${result.package.name}`;
+        return `${result.package.name}:${result.package.version}`;
       });
 
       dispatch({
